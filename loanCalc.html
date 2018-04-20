@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        form {
+            padding: 1.5em;
+            background-color: #f5f5f5;
+        }
+
+        form hr {
+            border-color: #999;
+        }
+
+        #paymentAmount {
+            font-weight: bold;
+        }
+
+        .calcResult {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <form>
+                <h2>Loan Payment Calculator</h2>
+                <hr>
+                <div class="form-group">
+                    <label for="loanAmount">Loan Amount</label>
+                    <input type="text" id="loanAmount" class="form-control user-input" value="50000">
+                </div>
+                <div class="form-group">
+                    <label for="interestRate">Interest Rate</label>
+                    <input type="text" id="interestRate" class="form-control user-input" value="4.5">
+                </div>
+                <div class="form-group">
+                    <label for="years">Years</label>
+                    <input type="text" id="years" class="form-control user-input" value="30">
+                </div>
+                <div class="form-group">
+                    <label for="paymentsPerYear">Payments per year</label>
+                    <input type="text" id="paymentsPerYear" class="form-control user-input" value="12">
+                </div>
+                <div class="form-group">
+                    <div class="calcResult">Your payment amount is <span id="paymentAmount"></span></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h2>Amortization Table</h2>
+            <hr>
+            <div id="schedule">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="amortize.js"></script>
+<script type="text/javascript" src="loan-calculator.js"></script>
+
+</body>
+</html>
