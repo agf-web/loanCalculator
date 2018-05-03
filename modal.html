@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="https://farmcredit-fl.com/CMSPages/GetResource.ashx?stylesheetname=nwfl-styles">
+    <link rel="stylesheet" href="https://farmcredit-fl.com/CMSPages/GetResource.ashx?stylesheetname=nwfl-cms">
+
+    <link ref="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="iziModal.min.css">
+
+
+    <style>
+        #modal {
+            padding: 1.5em;
+            background-color: #f5f5f5;
+        }
+
+        form hr {
+            border-color: #999;
+        }
+
+        #paymentAmount {
+            font-weight: bold;
+        }
+
+        .calcResult {
+            font-size: 1.5em;
+        }
+    </style>
+
+</head>
+<body>
+  <!-- Trigger to open Modal -->
+
+<a class="btn btn-primary btn-block" href="#" data-izimodal-open="#modal" data-izimodal-transitionin="fadeInDown">Calculate Payment</a>
+<div id="modal">
+            <p class="text-right"><button class="btn btn-primary" data-izimodal-close="">Close</button></p>
+  <!-- Specifying the closing transition -->
+            <form>
+                <h2>Loan Payment Calculator</h2>
+                <hr>
+                <div class="form-group">
+
+                    <label for="loanAmount">Loan Amount</label>
+                      <label class="sr-only" for="loanAmount">Amount (in dollars)</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input type="text" class="form-control user-input" id="loanAmount" value="50000">
+                        <div class="input-group-addon">.00</div>
+                      </div>
+                </div>
+                <div class="form-group">
+                    <label for="interestRate">Interest Rate</label>
+                    <label class="sr-only" for="loanAmount">Interest Rate (in percentage)</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control user-input" id="interestRate" value="4.5">
+                      <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="years">Years</label>
+                    <input type="text" id="years" class="form-control user-input" value="30">
+                </div>
+                <div class="form-group">
+                    <label for="paymentsPerYear">Payments per year</label>
+                    <input type="text" id="paymentsPerYear" class="form-control user-input" value="12">
+                </div>
+                <div class="form-group">
+                    <div class="calcResult">Your payment amount is <span id="paymentAmount"></span></div>
+                </div>
+
+            </form>
+
+
+            <h2>Amortization Table</h2>
+            <hr>
+            <div id="schedule">
+            </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="amortize.js"></script>
+<script type="text/javascript" src="loan-calculator.js"></script>
+
+<script src="iziModal.min.js" type="text/javascript"></script>
+<script>
+$("#modal").iziModal();
+$(document).on("click", ".trigger", function(event) {
+  event.preventDefault();
+  $("#modal").iziModal("setZindex", 99999);
+  $("#modal").iziModal("open", { zindex: 99999 });
+  $("#modal").iziModal("open");
+});
+</script>
+
+
+
+</body>
+</html>
